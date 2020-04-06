@@ -1,0 +1,25 @@
+.navbar{
+    background-color: #2dd3c5;
+}
+.button{
+    background-color: #0eb9ab;
+    color: white;
+    cursor: pointer;
+    margin: 10px;
+}
+.title{
+    text-align: center;
+    font-family: sans-serif;
+    color: #0eb9ab;
+}
+.example-container{
+    background-color: blue;
+    width: 40%;
+    height: 100%;
+}
+.iconButton{
+    background-color: #0eb9ab;
+}
+.menu{
+    color: white;
+}

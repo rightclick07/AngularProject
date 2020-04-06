@@ -1,0 +1,81 @@
+
+<div style="margin-left:80%;margin-top:2%;">
+  <button style="background-color: #0eb9ab;color:white" mat-button routerLink="addsong">
+    <mat-icon>add</mat-icon>
+    Add Song
+  </button>
+</div>
+<div>
+  <h3 style="margin-left: 5%;">Top 10 Songs</h3>
+  <table mat-table [dataSource]="top" class="mat-elevation-z8">
+  <!-- No. Column -->
+  <ng-container matColumnDef="No.">
+    <th mat-header-cell *matHeaderCellDef>No.</th>
+    <td mat-cell *matCellDef="let i=index"> {{i+1}} </td>
+  </ng-container>
+    <!-- ArtWork Column -->
+    <ng-container matColumnDef="Artwork">
+      <th mat-header-cell *matHeaderCellDef>Artwork</th>
+      <td mat-cell *matCellDef="let element"><img style="width:25px;height:25px;" [src]="element.cover"/></td>
+    </ng-container>
+  
+    <!-- Song Column -->
+    <ng-container matColumnDef="Song">
+      <th mat-header-cell *matHeaderCellDef>Song</th>
+      <td mat-cell *matCellDef="let element"> {{element.songName}} </td>
+    </ng-container>
+  
+    <!-- Date of Release Column -->
+    <ng-container matColumnDef="Date of Release">
+      <th mat-header-cell *matHeaderCellDef>Date of Release</th>
+      <td mat-cell *matCellDef="let element"> {{element.dor}} </td>
+    </ng-container>
+  
+    <!-- Artists Column -->
+    <ng-container matColumnDef="Artists">
+      <th mat-header-cell *matHeaderCellDef>Artists</th>
+      <td mat-cell *matCellDef="let element"> {{element.artistName}} </td>
+    </ng-container>
+    <!-- Rating Column -->
+    <ng-container matColumnDef="Rating">
+      <th mat-header-cell *matHeaderCellDef>Rating</th>
+      <td mat-cell *matCellDef="let element"><app-star-rating style="color: #0eb9ab;background-color: #0eb9ab;" [rating]="element.rating" [isEditable] = "true" ></app-star-rating></td>
+    </ng-container>
+  
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+  
+</div>
+<div>
+  <h3 style="margin-left: 5%;">Top 10 Artists</h3>
+  <table mat-table [dataSource]="top" class="mat-elevation-z8">
+    <!-- No. Column -->
+    <ng-container matColumnDef="No.">
+      <th mat-header-cell *matHeaderCellDef>No.</th>
+      <td mat-cell *matCellDef="let i=index"> {{i+1}} </td>
+    </ng-container>
+  
+    <!-- Artists Column -->
+    <ng-container matColumnDef="Artists">
+      <th mat-header-cell *matHeaderCellDef>Artists</th>
+      <td mat-cell *matCellDef="let element"> {{element.artistName}} </td>
+    </ng-container>
+  
+    <!-- Date of Birth Column -->
+    <ng-container matColumnDef="Date of Birth">
+      <th mat-header-cell *matHeaderCellDef>Date of Birth</th>
+      <td mat-cell *matCellDef="let element"> {{element.dob}} </td>
+    </ng-container>
+  
+    <!-- Songs Column -->
+    <ng-container matColumnDef="Songs">
+      <th mat-header-cell *matHeaderCellDef>Songs</th>
+      <td mat-cell *matCellDef="let element"> {{element.songName}} </td>
+    </ng-container>
+  
+    <tr mat-header-row *matHeaderRowDef="displayedColumns1"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns1;"></tr>
+  </table>
+  
+</div>

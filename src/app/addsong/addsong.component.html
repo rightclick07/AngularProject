@@ -1,0 +1,46 @@
+
+
+  <h3 style="margin-left: 5%;">Adding a new song</h3>
+  <button style="background-color: #0eb9ab;color:white;margin-left: 75%;" mat-button (click)="openDialog()">
+    <mat-icon>add</mat-icon>
+    Add Artist
+  </button>
+
+<form [formGroup]="userForm" class="example-container" (ngSubmit)="onSubmit()">
+  <mat-form-field style="width:40%" appearance="outline">
+    <mat-label>Song Name</mat-label>
+    <input matInput formControlName="songName" required>
+    <mat-error *ngIf="errorHandling('songName', 'required')">
+      Please enter song name
+   </mat-error>
+  </mat-form-field>
+  <br>
+  <mat-form-field style="width:40%" appearance="outline">
+    <mat-label>Date of Release</mat-label>
+    <input matInput [matDatepicker]="picker" formControlName="dateOfRelease">
+    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+    <mat-datepicker #picker></mat-datepicker>
+    <mat-error *ngIf="errorHandling('dateOfRelease', 'required')">
+      Please select valid date
+   </mat-error>
+  </mat-form-field>
+  <br>
+<div> 
+  <mat-label style="margin-right: 2%;">ArtWork</mat-label>
+  <input type="file"  class="custom-file-input" formControlName="image" >
+</div>
+    
+  <div style="margin-top: 2%;">
+    <mat-form-field appearance="outline" style="margin-right: 2%;width: 40%;">
+      <mat-label>Artist Name</mat-label>
+      <mat-select formControlName="myControl" multiple>
+        <mat-option  *ngFor="let element of top" [value]="element">{{element}}</mat-option>
+      </mat-select>
+    </mat-form-field>
+    
+  </div>
+  
+  <button mat-button style="background-color: rgb(59, 58, 58);color: white;">Cancel</button>
+  <button mat-button type="submit" style="background-color: teal;color: white;margin: 2%;" [disabled]="!userForm.valid">Save</button>
+
+</form>
